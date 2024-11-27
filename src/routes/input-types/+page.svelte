@@ -19,15 +19,17 @@
 </div>
 
 <style>
-	:global(body) {
-		margin: 0;
-	}
 	h1 {
-		margin-top: 0;
+		margin-bottom: 4rem;
+	}
+	h2 {
+		font-size: 1.5rem;
+		text-align: right;
 	}
 	.wrapper {
 		--black: #222;
 		--white: #eee;
+		--accent: tomato;
 		color-scheme: light dark;
 		background: light-dark(var(--white), var(--black));
 		color: light-dark(var(--black), var(--white));
@@ -37,7 +39,7 @@
 	}
 	.inputs {
 		display: grid;
-		grid-template-columns: 15% 50%;
+		grid-template-columns: 1fr 4fr;
 		gap: 3rem;
 		margin-bottom: 4rem;
 	}
@@ -49,5 +51,6 @@
 		font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
 			'DejaVu Sans Mono', monospace;
 		font-weight: bold;
+		color: var(--accent);
 	}
 </style>
