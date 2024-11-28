@@ -42,9 +42,9 @@
 		font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 		font-weight: 800;
 	}
-	/* code { */
-	/* 	margin-inline: 1em; */
-	/* } */
+	code {
+		font-family: system-ui, sans-serif;
+	}
 	.column-item {
 		aspect-ratio: 1.1;
 		background-color: var(--background);
@@ -53,7 +53,7 @@
 		align-content: center;
 		font-size: 2rem;
 		border-radius: 3px;
-		overflow: hidden;
+		overflow: hiddenr;
 	}
 	.column-item div {
 		display: grid;
