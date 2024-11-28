@@ -12,7 +12,7 @@
 			{#each row as color}
 				<div class="column-item" style="--background: {color.hex}; --text: {color.text}">
 					<div>
-						<TextJustifier bold><b>{color.name}</b></TextJustifier>
+						<TextJustifier><b>{color.name}</b></TextJustifier>
 						<TextJustifier><code>{color.code}</code></TextJustifier>
 						{#if color.rgb}
 							<TextJustifier><code>{color.rgb}</code></TextJustifier>
@@ -40,24 +40,24 @@
 	}
 	b {
 		font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
-		font-weight: 800;
+		font-weight: 900;
 	}
 	code {
-		font-family: system-ui, sans-serif;
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 	}
 	.column-item {
 		aspect-ratio: 1.1;
 		background-color: var(--background);
 		color: var(--text);
 		padding: 5%;
-		align-content: center;
-		font-size: 2rem;
 		border-radius: 3px;
-		overflow: hiddenr;
 	}
 	.column-item div {
 		display: grid;
+		align-content: center;
+		height: 100%;
 		gap: 5%;
 		font-size: 5px;
+		overflow: hidden;
 	}
 </style>

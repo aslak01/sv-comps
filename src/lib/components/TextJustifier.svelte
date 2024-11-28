@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	let { bold = false, children }: { bold?: boolean; children: Snippet } = $props();
+	let { children }: { children: Snippet } = $props();
 </script>
 
 <span class="text-fit">
-	<span><span class:bold>{@render children()}</span></span>
-	<span aria-hidden="true" class:bold>{@render children()}</span>
+	<span><span>{@render children()}</span></span>
+	<span aria-hidden="true">{@render children()}</span>
 </span>
 
 <style>
