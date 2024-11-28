@@ -40,9 +40,6 @@
 		font-size: 1.5rem;
 	}
 	code {
-		font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
-			'DejaVu Sans Mono', monospace;
-		font-weight: bold;
 		color: var(--accent);
 	}
 </style>

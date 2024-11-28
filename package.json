@@ -46,6 +46,8 @@
 		"vitest": "^2.0.4"
 	},
 	"dependencies": {
-		"@faker-js/faker": "^9.2.0"
+		"@faker-js/faker": "^9.2.0",
+		"color-name-list": "^11.0.0",
+		"nearest-color": "^0.4.4"
 	}
 }

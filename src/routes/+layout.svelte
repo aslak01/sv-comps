@@ -23,4 +23,10 @@
 		font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
 			sans-serif-condensed, sans-serif;
 	}
+
+	.app code {
+		font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+			'DejaVu Sans Mono', monospace;
+		font-weight: bold;
+	}
 </style>

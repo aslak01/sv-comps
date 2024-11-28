@@ -1,15 +1,24 @@
 <script lang="ts">
-	import { faker } from '@faker-js/faker';
-	const test = 'test';
-	const make123 = () => faker.number.int({ min: 1, max: 3 });
-	const makeColor = () => faker.color.rgb({ format: 'hex' });
+	import type { PageData } from './$types';
+	import TextJustifier from '$lib/components/TextJustifier.svelte';
+
+	let { data }: { data: PageData } = $props();
+	const { divs } = data;
 </script>
 
 <main>
-	{#each Array.from({ length: 30 }) as _}
+	{#each divs as row}
 		<div class="row">
-			{#each Array.from({ length: make123() }) as _}
-				<div style="background: {makeColor()}; height: 300px; width: 100%;"></div>
+			{#each row as color}
+				<div class="column-item" style="--background: {color.hex}; --text: {color.text}">
+					<div>
+						<TextJustifier bold><b>{color.name}</b></TextJustifier>
+						<TextJustifier><code>{color.code}</code></TextJustifier>
+						{#if color.rgb}
+							<TextJustifier><code>{color.rgb}</code></TextJustifier>
+						{/if}
+					</div>
+				</div>
 			{/each}
 		</div>
 	{/each}
@@ -20,10 +29,33 @@
 		display: grid;
 		gap: 10px;
 		padding: 10px;
+		font-size: 6pt;
+		word-spacing: normal;
 	}
 	.row {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 		gap: 10px;
+	}
+	b {
+		font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+		font-weight: 800;
+	}
+	/* code { */
+	/* 	margin-inline: 1em; */
+	/* } */
+	.column-item {
+		aspect-ratio: 1.1;
+		background-color: var(--background);
+		color: var(--text);
+		padding: 5%;
+		align-content: center;
+		font-size: 2rem;
+		border-radius: 3px;
+	}
+	.column-item div {
+		display: grid;
+		gap: 5%;
+		font-size: 5px;
 	}
 </style>
