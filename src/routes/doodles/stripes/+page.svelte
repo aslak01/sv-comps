@@ -29,7 +29,7 @@
 			{@const end = Math.round((i + displacement) * frequency + angle)}
 			<path
 				d="M{start},{angle * -1} {end},{height + angle}"
-				stroke={i === highlight ? '#d60000' : '#eeeeee'}
+				stroke={i === highlight ? '#fc6c85' : '#d9b1d6'}
 				stroke-width={thickness}
 				fill="none"
 			/>
@@ -44,7 +44,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: lightskyblue;
 	}
 	svg {
 		height: var(--height);

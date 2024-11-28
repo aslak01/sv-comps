@@ -13,7 +13,6 @@
 		display: flex;
 		container-type: inline-size;
 		line-height: 1;
-		font-optical-sizing: none;
 
 		--captured-length: initial;
 		--support-sentinel: var(--captured-length, 9999px);

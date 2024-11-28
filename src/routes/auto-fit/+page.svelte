@@ -44,6 +44,7 @@
 	}
 	code {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		font-variant-numeric: normal;
 	}
 	.column-item {
 		aspect-ratio: 1.1;
