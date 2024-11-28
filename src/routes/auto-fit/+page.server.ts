@@ -8,6 +8,7 @@ import type { PageServerLoad } from './$types';
 type ColorEntry = {
 	name: string;
 	hex: string;
+	rgb: { r: number; g: number; b: number };
 };
 
 type ColorMap = {
@@ -24,7 +25,9 @@ type ColorMatch = {
 type ColorData = {
 	hex: string;
 	name: string;
-	text: 'black' | 'white';
+	text: '#222' | '#eee';
+	rgb: string;
+	code: string;
 };
 
 type NearestColorFn = {
@@ -56,8 +59,8 @@ const makeColor = (): ColorData => {
 	const neighbour = nearest(inHex);
 	const name = neighbour?.name ?? '';
 	const hex = neighbour?.value ?? inHex;
-	const { rgb } = neighbour;
-	const rgbString = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+	const rgb = neighbour?.rgb;
+	const rgbString = rgb ? `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` : '';
 	const code = hex ?? inHex;
 	const luminance = getLuminance(hex);
 

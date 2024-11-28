@@ -31,6 +31,7 @@
 		padding: 10px;
 		font-size: 6pt;
 		word-spacing: normal;
+		max-width: 980px;
 	}
 	.row {
 		display: grid;
@@ -52,6 +53,7 @@
 		align-content: center;
 		font-size: 2rem;
 		border-radius: 3px;
+		overflow: hidden;
 	}
 	.column-item div {
 		display: grid;
