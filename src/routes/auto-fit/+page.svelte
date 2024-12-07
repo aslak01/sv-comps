@@ -47,7 +47,7 @@
 		font-variant-numeric: normal;
 	}
 	.column-item {
-		aspect-ratio: 1.1;
+		aspect-ratio: 1.3;
 		background-color: var(--background);
 		color: var(--text);
 		padding: 5%;

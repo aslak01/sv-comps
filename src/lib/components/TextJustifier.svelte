@@ -50,7 +50,7 @@
 					}
 				}
 
-				&.text-fit {
+				& .text-fit {
 					--captured-length2: var(--font-size);
 					font-variation-settings: 'opsz' tan(atan2(var(--captured-length2), 1px));
 				}

@@ -74,10 +74,12 @@ const makeColor = (): ColorData => {
 };
 
 export const load: PageServerLoad = async () => {
-	const cols = make123();
-	const isSingleCol = cols === 1;
-	const isNested = isSingleCol && make5050() > 50;
-	const divs = Array.from({ length: 30 }, () => Array.from({ length: cols }, () => makeColor()));
+	const divs = Array.from({ length: 30 }, () => {
+		const cols = make123();
+		const isSingleCol = cols === 1;
+		const isNested = isSingleCol && make5050() > 50;
+		return Array.from({ length: cols }, () => makeColor());
+	});
 
 	return {
 		divs
