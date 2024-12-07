@@ -28,6 +28,8 @@ type ColorData = {
 	text: '#222' | '#eee';
 	rgb: string;
 	code: string;
+	type?: string;
+	shortName: boolean;
 };
 
 type NearestColorFn = {
@@ -54,7 +56,7 @@ function getLuminance(hex: string) {
 const make123 = () => faker.number.int({ min: 1, max: 3 });
 const make5050 = () => faker.number.int({ min: 0, max: 100 });
 
-const makeColor = (): ColorData => {
+const fillDiv = (type?: string): ColorData => {
 	const inHex = faker.color.rgb({ format: 'hex' });
 	const neighbour = nearest(inHex);
 	const name = neighbour?.name ?? '';
@@ -62,23 +64,34 @@ const makeColor = (): ColorData => {
 	const rgb = neighbour?.rgb;
 	const rgbString = rgb ? `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` : '';
 	const code = hex ?? inHex;
-	const luminance = getLuminance(hex);
+	const text: '#222' | '#eee' = getLuminance(hex) ? '#222' : '#eee';
+	const shortName = name.length < 7;
 
-	return {
+	const divSettings: ColorData = {
 		code,
 		hex,
 		name,
 		rgb: rgbString,
-		text: luminance ? '#222' : '#eee'
+		text,
+		shortName
 	};
+
+	if (type && typeof type === 'string') {
+		divSettings.type = type;
+	}
+
+	return divSettings;
 };
 
 export const load: PageServerLoad = async () => {
 	const divs = Array.from({ length: 30 }, () => {
 		const cols = make123();
 		const isSingleCol = cols === 1;
-		const isNested = isSingleCol && make5050() > 50;
-		return Array.from({ length: cols }, () => makeColor());
+		const isNested = isSingleCol && make5050() > 30;
+		const side = make5050() > 50 ? 'left' : 'right';
+		return isNested
+			? Array.from({ length: 3 }, () => fillDiv(`big ${side}`))
+			: Array.from({ length: cols }, () => fillDiv());
 	});
 
 	return {

@@ -10,7 +10,10 @@
 	{#each divs as row}
 		<div class="row">
 			{#each row as color}
-				<div class="column-item" style="--background: {color.hex}; --text: {color.text}">
+				<div
+					class="column-item {color.type} {color.shortName ? 'short' : ''}"
+					style="--background: {color.hex}; --text: {color.text}"
+				>
 					<div>
 						<TextJustifier><b>{color.name}</b></TextJustifier>
 						<TextJustifier><code>{color.code}</code></TextJustifier>
@@ -60,5 +63,45 @@
 		gap: 5%;
 		font-size: 5px;
 		overflow: hidden;
+	}
+
+	.column-item.short div {
+		gap: 0;
+	}
+
+	.row:has(.column-item.big.right) {
+		grid-template-columns: 1fr 2fr;
+
+		.column-item:nth-child(1) {
+			grid-column: 1;
+			grid-row: 1 / 2;
+		}
+		.column-item:nth-child(2) {
+			grid-column: 1;
+			grid-row: 2 / 3;
+		}
+		.column-item:nth-child(3) {
+			grid-column: 2;
+			grid-row: 1 / 3;
+			aspect-ratio: 1.25;
+		}
+	}
+
+	.row:has(.column-item.big.left) {
+		grid-template-columns: 2fr 1fr;
+
+		.column-item:nth-child(1) {
+			grid-column: 1;
+			grid-row: 1 / 3;
+			aspect-ratio: 1.25;
+		}
+		.column-item:nth-child(2) {
+			grid-column: 2;
+			grid-row: 1 / 2;
+		}
+		.column-item:nth-child(3) {
+			grid-column: 2;
+			grid-row: 2 / 3;
+		}
 	}
 </style>
