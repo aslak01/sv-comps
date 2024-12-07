@@ -51,7 +51,7 @@ function getLuminance(hex: string) {
 	return brightness > 0.5;
 }
 
-const make123 = () => faker.number.int({ min: 1, max: 4 });
+const make123 = () => faker.number.int({ min: 1, max: 3 });
 const make5050 = () => faker.number.int({ min: 0, max: 100 });
 
 const makeColor = (): ColorData => {
@@ -74,9 +74,10 @@ const makeColor = (): ColorData => {
 };
 
 export const load: PageServerLoad = async () => {
-	const divs = Array.from({ length: 30 }, () =>
-		Array.from({ length: make123() }, () => makeColor())
-	);
+	const cols = make123();
+	const isSingleCol = cols === 1;
+	const isNested = isSingleCol && make5050() > 50;
+	const divs = Array.from({ length: 30 }, () => Array.from({ length: cols }, () => makeColor()));
 
 	return {
 		divs
