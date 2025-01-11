@@ -56,6 +56,7 @@
 		padding: 5%;
 		border-radius: 3px;
 	}
+
 	.column-item div {
 		display: grid;
 		align-content: center;
@@ -83,7 +84,7 @@
 		.column-item:nth-child(3) {
 			grid-column: 2;
 			grid-row: 1 / 3;
-			aspect-ratio: 1.25;
+			aspect-ratio: unset;
 		}
 	}
 
@@ -93,7 +94,7 @@
 		.column-item:nth-child(1) {
 			grid-column: 1;
 			grid-row: 1 / 3;
-			aspect-ratio: 1.25;
+			aspect-ratio: unset;
 		}
 		.column-item:nth-child(2) {
 			grid-column: 2;
